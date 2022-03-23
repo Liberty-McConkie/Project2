@@ -13,5 +13,7 @@ namespace Project2.Models
 
         [Required]
         public string TimeSlot { get; set; }
+
+        
     }
 }
