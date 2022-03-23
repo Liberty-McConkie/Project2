@@ -32,5 +32,10 @@ namespace Project2.Controllers
             return View(appointments);
         }
 
+        public IActionResult ViewAppointments()
+        {
+            return View();
+        }
+
     }
 }
