@@ -1,0 +1,34 @@
+﻿@{
+    @ViewBag.Title = "Tourist.Info";
+}
+
+@model Tourist
+<!-- THIs is where my form goes pulling info from laytons project.-->
+<div class="container d-flex justify-content-center">
+    <div>
+        <h1>Please fill out your information</h1>
+        <form method="Post">
+            <div class="form-floating">
+                <input type="text" class="form-control" value="@ViewBag.DateTime" asp-for="AppointmentStart" asp-controller="Home" />
+                <label class="disabled" asp-for="AppointmentStart">Appointment Start: </label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="GroupName" asp-controller="Home" />
+                <label asp-for="GroupName">Group Name: </label>
+            </div>
+            <div class="form-floating">
+                <input type="number" class="form-control" asp-for="SizeOfGroup" asp-controller="Home" />
+                <label asp-for="SizeOfGroup">Group Size: </label>
+            </div>
+            <div class="form-floating">
+                <input type="email" class="form-control" asp-for="EmailAddress" asp-controller="Home" />
+                <label asp-for="EmailAddress">Email Address: </label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="PhoneNumber" asp-controller="Home" />
+                <label asp-for="PhoneNumber">Phone Number: </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit your info</button>
+        </form>
+    </div>
+</div>
