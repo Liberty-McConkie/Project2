@@ -21,7 +21,7 @@ namespace Project2.Models
         public string PhoneNumber { get; set; }
 
         [Required]
-        public DateTime AppointmentStart { get; set; }
+        public string AppointmentStart { get; set; }
 
 
     }
