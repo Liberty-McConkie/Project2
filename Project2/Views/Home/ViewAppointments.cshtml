@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "View Tasks";
+}
+
+@model List<Tourist>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <th>Appointment Start</th>
+        <th>Group Name</th>
+        <th>Group Size</th>
+        <th>Email Address</th>
+    </thead>
+        <tbody>
+            @foreach (var x in Model)
+
+            {
+            <tr>
+                <td>@x.AppointmentStart</td>
+                <td>@x.GroupName</td>
+                <td>@x.SizeOfGroup</td>
+                <td>@x.EmailAddress</td>
+
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentstart="@x.AppointmentStart">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-appointmentstart="@x.AppointmentStart">Delete</a></td>
+            </tr>
+            }
+        </tbody>
+</table>
