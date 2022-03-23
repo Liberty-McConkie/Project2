@@ -26,9 +26,10 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
-            var appointmnets = DbContext.Appointments.ToList();
+            
 
-            return View(appointmnets);
+
+            return View();
         }
 
     }
