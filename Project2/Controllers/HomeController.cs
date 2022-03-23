@@ -11,14 +11,24 @@ namespace Project2.Controllers
 {
     public class HomeController : Controller
     {
+        private TempleTourContext DbContext { get; set; }
 
-        public HomeController()
-        { 
+        public HomeController(TempleTourContext temp)
+        {
+            DbContext = temp;
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            var appointmnets = DbContext.Appointments.ToList();
+
+            return View(appointmnets);
         }
 
     }
