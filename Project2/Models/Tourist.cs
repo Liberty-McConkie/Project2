@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Project2.Models
 {
-    public class Userinfo
+    public class Tourist
     {
         [Key]
         public int TouristId { get; set; }
 
         [Required]
-        [Range(0, 16, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public string GroupName { get; set; }
 
         [Required]
+        [Range(1, 16, ErrorMessage = "The max group size is 16 people")]
         public int SizeOfGroup { get; set; }
 
         [Required]
