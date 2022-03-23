@@ -23,12 +23,13 @@ namespace Project2.Controllers
             return View();
         }
 
+
         [HttpGet]
         public IActionResult SignUp()
         {
-            var appointmnets = DbContext.Appointments.ToList();
+            var appointments = DbContext.Appointments.ToList();
 
-            return View(appointmnets);
+            return View(appointments);
         }
 
     }
