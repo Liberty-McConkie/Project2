@@ -2,54 +2,48 @@
 
 @model List<Tourist>
 
-<h2>Pick a time from the available slots below</h2>
+@{
+
+    DateTime thisDay = DateTime.Today;
+    var today = thisDay.ToString("d");
+    var startTime = DateTime.Parse(today + " 08:00:00");
+    var endTime = startTime.AddHours(12);
+
+}
 
 <div class="container">
 
-    @{
-        DateTime thisDay = DateTime.Today;
 
-        //This is today's date (mm/dd/yyyy)
-        var today = thisDay.ToString("d");
+   <input type="date" name="appt_date" id="appt_date" onchange="console.log(this.value);" />
 
-        var bookedAppt = DateTime.Parse("2022-03-23T10:00:00");
+   
 
-        var startTime = DateTime.Parse(today + " 08:00:00");
-        var endTime = startTime.AddHours(12);
+    
 
-    }
 
     @while (startTime <= endTime)
     {
-        @if (startTime == bookedAppt)
+        @foreach (var x in Model)
         {
-            startTime = startTime.AddHours(1);
+            @if (startTime.ToString("s") == x.AppointmentStart)
+            {
+                startTime = startTime.AddHours(1);
+            }
+            else
+            {
+                <div class="col">
+                    <form method="get">
+                        <input type="hidden" asp-route-appointmentstart="@startTime.ToString("s")" />
+                        <button type="submit" class="btn btn-info btn-lg btn-block mt-2" asp-action="TouristInfo">@startTime.ToString("t") - @startTime.AddHours(1).ToString("t")</button>
+                    </form>
+                </div>
+                startTime = startTime.AddHours(1);
+            }
+
         }
-        else
-        {
-            <div class="col">
-                <form method="get">
-                    <button type="submit" class="btn btn-info btn-lg btn-block mt-2">@startTime.ToString("s")</button>
-                </form>
-            </div>
-            startTime = startTime.AddHours(1);
-        }
+
+
     }
 
 
-@*
-    <div class="row">
-        <div class="col">
-            <h4>Tuesday</h4>
-        </div>
-        @foreach (var x in Model)
-        {
-            <div class="col">
-                <form method="get">
-                    <input type="hidden" asp-for="@x.AppointmentId" />
-                    <button type="submit" class="btn btn-lg btn-info btn-block mt-2">@x.TimeSlot</button>
-                </form>
-            </div>
-        }
-    </div>*@
 </div>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Project2.Models;
 using System;
@@ -27,11 +28,13 @@ namespace Project2.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
-            var appointments = DbContext.Appointments.ToList();
+            var tourists = DbContext.Tourists.ToList();
 
-            return View(appointments);
+            return View(tourists);
         }
 
+       
+=======
         public IActionResult ViewAppointments()
         {
             return View();
