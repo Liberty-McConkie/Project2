@@ -10,13 +10,15 @@
         <th>Group Name</th>
         <th>Group Size</th>
         <th>Email Address</th>
+        <th></th>
+        <th></th>
     </thead>
     <tbody>
         @foreach (var x in Model)
 
         {
             <tr>
-                
+
                 <td>@x.AppointmentStart</td>
                 <td>@x.GroupName</td>
                 <td>@x.SizeOfGroup</td>
