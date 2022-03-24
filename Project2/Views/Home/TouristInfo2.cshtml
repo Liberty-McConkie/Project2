@@ -1,14 +1,13 @@
 ﻿@model Tourist
-
 <!-- THIs is where my form goes pulling info from laytons project.-->
 <div class="container d-flex justify-content-center">
     <div>
         <h1>Please fill out your information</h1>
 
         <h4>@ViewBag.Tourists</h4>
-       
+
         <form method="Post">
-            <input type="hidden" value="@ViewBag.Tourists" asp-for="AppointmentStart"/>
+            <input type="hidden" value="@Model.AppointmentStart" asp-for="AppointmentStart" />
 
             <div class="form-floating">
                 <label asp-for="GroupName">Group Name: </label>
