@@ -6,11 +6,11 @@
 
 <h2>Confirm Deletion</h2>
 <h3>Are you sure you want to delete the following appointment?</h3>
-<p>@Model.AppointmentStart</p>
+<h4>@Model.AppointmentStart.Substring(11)</h4>
 
 <form method="post" asp-controller="Home" asp-action="Delete">
     <a asp-controller="Home" asp-action="ViewAppointments" class="btn btn-primary">Cancel</a>
-    <button type="submit" class="btn-outline-primary">Delete</button>
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
 
     <input type="hidden" asp-for="TouristId" />
 </form>

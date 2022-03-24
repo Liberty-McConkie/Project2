@@ -5,7 +5,7 @@
     <div>
         <h1>Please fill out your information</h1>
 
-        <h4>@ViewBag.Tourists</h4>
+        <h4>@ViewBag.Tourists.Substring(11)</h4>
        
         <form method="Post">
             <input type="hidden" value="@ViewBag.Tourists" asp-for="AppointmentStart"/>
