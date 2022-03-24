@@ -33,18 +33,22 @@ namespace Project2.Controllers
             return View(tourists);
         }
 
-       
-=======
         public IActionResult ViewAppointments()
         {
-            return View();
+            var tourist = DbContext.Tourists.ToList();
+
+            return View(tourist);
         }
 
         [HttpGet]
         public IActionResult TouristInfo(string appointmentstart)
         {
-            ViewBag().DateTime = appointmentstart;
+            ViewBag.Tourists = appointmentstart;
+
             return View();
+
+            /*var x = appointmentstart;
+            return View("TouristInfo");*/
         }
         [HttpPost]
         public IActionResult TouristInfo(Tourist to)
@@ -54,11 +58,11 @@ namespace Project2.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult Edit(string appointmentstart)
+        public IActionResult Edit(int touristId)
         {
-            ViewBag().TouristInfo = DbContext.Tourists.ToList();
-            var appointment = DbContext.Tourists.Single(x => x.AppointmentStart == appointmentstart);
-            return View("TouristInfo", appointment);
+            ViewBag.TouristInfo = touristId;
+            var appointment = DbContext.Tourists.Single(x => x.TouristId == touristId);
+            return View("TouristInfo2", appointment);
         }
         [HttpPost]
         public IActionResult Edit(Tourist to)
@@ -68,9 +72,9 @@ namespace Project2.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public IActionResult Delete(string appointmentstart)
+        public IActionResult Delete(int touristId)
         {
-            var appointment = DbContext.Tourists.Single(x => x.AppointmentStart == appointmentstart);
+            var appointment = DbContext.Tourists.Single(x => x.TouristId == touristId);
             return View(appointment);
         }
         [HttpPost]

@@ -11,19 +11,20 @@
         <th>Group Size</th>
         <th>Email Address</th>
     </thead>
-        <tbody>
-            @foreach (var x in Model)
+    <tbody>
+        @foreach (var x in Model)
 
-            {
+        {
             <tr>
+                
                 <td>@x.AppointmentStart</td>
                 <td>@x.GroupName</td>
                 <td>@x.SizeOfGroup</td>
                 <td>@x.EmailAddress</td>
 
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentstart="@x.AppointmentStart">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-appointmentstart="@x.AppointmentStart">Delete</a></td>
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-touristId="@x.TouristId">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-touristId="@x.TouristId">Delete</a></td>
             </tr>
-            }
-        </tbody>
+        }
+    </tbody>
 </table>
